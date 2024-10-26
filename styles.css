@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #141414; /* Latar belakang gelap seperti Netflix */
+    color: white;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 150, 0.1), rgba(0, 0, 0, 0.5));
+    z-index: -1;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    padding: 50px;
+}
+
+.animated-text {
+    font-size: 4em;
+    color: #e50914; /* Warna teks utama seperti Netflix */
+    text-shadow: 0 0 10px rgba(255, 0, 150, 0.7);
+    animation: moveText 4s ease-in-out infinite;
+}
+
+@keyframes moveText {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-20px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(20px); }
+    100% { transform: translateY(0); }
+}
+
+.message-container {
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.message {
+    font-size: 1.5em;
+    margin: 10px 0;
+    transition: transform 0.3s;
+    color: #ffffff;
+}
+
+.message:hover {
+    transform: scale(1.05);
+    color: #e50914; /* Warna saat hover */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.heart-animation {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    width: 80px;
+    height: 80px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Heart_icon.svg/2048px-Heart_icon.svg.png');
+    background-size: cover;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4081;
+    opacity: 0.7;
+    animation: fall 3s infinite linear;
+}
+
+@keyframes fall {
+    0% { top: -10px; transform: rotate(0deg); }
+    100% { top: 100vh; transform: rotate(360deg); }
+}
+
+.celebrate-button {
+    background-color: #e50914; /* Warna tombol */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.celebrate-button:hover {
+    background-color: #ff0055;
+    transform: scale(1.05);
+}
+
+/* Styling untuk gambar surprise */
+.surprise-image {
+    display: none; /* Awalnya tidak ditampilkan */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Ukuran gambar surprise */
+    max-width: 500px; /* Ukuran maksimum */
+    animation: fadeIn 1s forwards; /* Animasi saat muncul */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
